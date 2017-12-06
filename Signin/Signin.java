@@ -13,10 +13,12 @@ public static void main(String[] args) {
     Scanner input1 = new Scanner(System.in);
     System.out.println("Enter Username : ");
     String username = input1.next();
+    Username = Username.trim();
 
     Scanner input2 = new Scanner(System.in);
     System.out.println("Enter Password : ");
     String password = input2.next();
+    Password = Password.trim();
 
     if (username.equals(Username) && password.equals(Password)) {
 
