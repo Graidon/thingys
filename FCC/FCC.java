@@ -7,6 +7,65 @@ public class FCC {
       System.out.println(pM);
       return pM;
     }
+
+    public int checkIntEntry (String userNumber1) {
+    String userNumber2 = new String();
+    userNumber2 = "";
+    int item_int = 0;
+    double item_double = 0.0;
+    try {
+        item_double = Double.parseDouble(userNumber1);
+        item_double = 0.0;
+    }
+    catch (NumberFormatException ne3) {
+        System.out.println ("User has failed first attempt at entering item number");
+        userNumber2 = JOptionPane.showInputDialog ("Please enter how many " +
+                "whole items.\nFor example: \' 3 \'");
+        try {
+          item_double = Double.parseDouble(userNumber2);
+          userNumber1 = userNumber2;
+          item_double = 0.0;
+        }
+        catch (NumberFormatException ne4) {
+          System.out.println ("User failed a second attempt for " +
+                             "an integer value of items.");
+          JOptionPane.showMessageDialog (null, "Please restart the program and " +
+                     "enter a whole number of items, as a whole number.", "ERROR " +
+                     "MESSAGE", JOptionPane.ERROR_MESSAGE);
+          System.exit(0);
+        }
+    }
+    try {
+      System.out.println ("User entered a double or int for number of items.");
+      item_int = Integer.parseInt(userNumber1);
+      System.out.println ("User entered an int for number of items.");
+    }
+    catch (NumberFormatException ne6) {
+      System.out.println ("User entered a decimal value for the number of items.");
+      userNumber2 = JOptionPane.showInputDialog ("It seems you have entered " +
+              " a decimal number.\nPlease enter a number of whole items.\n" +
+              "For example: \' 3 \'");
+      try {
+        item_int = Integer.parseInt(userNumber2);
+        item_double = 0.0;
+      }
+      catch (NumberFormatException ne7) {
+        System.out.println ("User failed a second attempt for " +
+                           "the whole number of items.");
+        JOptionPane.showMessageDialog (null, "Please restart the program and " +
+                   "enter a whole number of items, as a whole number.", "ERROR " +
+                   "MESSAGE", JOptionPane.ERROR_MESSAGE);
+        System.exit(0);
+      }
+    }
+
+    System.out.println ("Tracking Variables of Procedure for debugging");
+    System.out.println (item_int);
+    System.out.println (item_double);
+    System.out.println (userNumber1);
+    System.out.println (userNumber2);
+    return item_int;
+ }
     public static void main(String[] args)
     throws NumberFormatException
    {
@@ -51,68 +110,12 @@ public class FCC {
 //here
    System.out.println ("How much vodka do we need comrade.\n");
 
-   String apples_string1 = JOptionPane.showInputDialog ("Let's fill the T-34 for our trip to Fascist Heartland" +
+   String usernum1 = JOptionPane.showInputDialog ("Let's fill the T-34 for our trip to Fascist Heartland" +
       ", how much vodka do we need comrade");
-   int apples_int = 0;
-   double apples_double = 0.0;
-   String apples_string2 = "";
 
-   try {
-     apples_double = Double.parseDouble(apples_string1);
-     apples_double = 0.0;
-   }
-   catch (NumberFormatException ne3) {
-     System.out.println ("Tiger to the left! (intag)");
-     apples_string2 = JOptionPane.showInputDialog ("Tiger to the left!");
-     try {
-       apples_double = Double.parseDouble(apples_string2);
-     }
-     catch (NumberFormatException ne4) {
-       System.out.println ("The tiger sees us(intag)");
-       JOptionPane.showMessageDialog (null, "Our tank broke down(whole)", "ERROR " + "MESSAGE", JOptionPane.ERROR_MESSAGE);
-       System.exit(0);
-     }
-   }
-   if (apples_double > 0.0 ) {
-     try {
-       System.out.println ("Wait what is Demitri doing with that pistol and vodka");
-       apples_int = Integer.parseInt(apples_string1);
-       apples_string1 = apples_string2;
-       System.out.println("By Stalin, Demitri is taking on a Tiger with a pistol and vodka, good man");
-       apples_double = 0.0;
-     }
-     catch (NumberFormatException ne5) {
-       System.out.println ("I think that shot got the pigs");
-       JOptionPane.showMessageDialog (null, "For Stalingrad!", "ERROR " +
-                   "MESSAGE", JOptionPane.ERROR_MESSAGE);
-       System.exit(0);
-     }
-   }
-   try {
-     System.out.println ("I see the German border");
-     apples_int = Integer.parseInt(apples_string1);
-     System.out.println ("Today we bring the fight to their people.");
-   }
-   catch (NumberFormatException ne6) {
-     System.out.println ("Berlin, Germany");
-     apples_string2 = JOptionPane.showInputDialog ("The Reichstag is in the centre of Germany, push Comrades");
-      try {
-        apples_int = Integer.parseInt(apples_string2);
-        apples_double = 0.0;
-      }
-      catch (NumberFormatException ne7) {
-        System.out.println ("German soldiers to the left");
-        JOptionPane.showMessageDialog (null, "Comrade watch out for the soldiers to the left", "ERROR " +
-                   "MESSAGE", JOptionPane.ERROR_MESSAGE);
-        System.exit(0);
-      }
-    }
 
     System.out.println("The german army surrendered");
-    System.out.println(apples_int);
-    System.out.println(apples_double);
-    System.out.println(apples_string1);
-    System.out.println(apples_string2);
+    System.out.println(usernum1);
 
  }
 }
